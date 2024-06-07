@@ -79,7 +79,7 @@ jobs:
         working-directory: ${{github.workspace}}/.build
         shell: bash
         # Execute the build.  You can specify a specific target with "--target <NAME>"
-        run:  cpptestcov report html .coverage
+        run:  cpptestcov report html .coverage -out .coverage/index.html
         
       - name: Setup Pages
         uses: actions/configure-pages@v3
