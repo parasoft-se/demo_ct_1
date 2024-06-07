@@ -74,13 +74,13 @@ jobs:
             .build/.coverage/*.*
 
       - name: Line Coverage Quality Gate
-        working-directory: ${{github.workspace}}
+        working-directory: ${{github.workspace}}/.build
         shell: bash
         # Query for project's coverage and compare with the gate requirements
         run: NUMBER=$(cpptestcov query -coverage LC .coverage) && if [ $NUMBER -lt $LINE_COV_GATE ]; then echo "Line coverage quality gate failed"; echo "Expected result $LINE_COV_GATE%, echieved $NUMBER%"; false; else echo "Line coverage quality gate passed with $NUMBER% (required $LINE_COV_GATE%)"; true; fi      
           
       - name: MCDC Coverage Quality Gate
-        working-directory: ${{github.workspace}}
+        working-directory: ${{github.workspace}}/.build
         shell: bash
         # Query for project's coverage and compare with the gate requirements
         run: NUMBER=$(cpptestcov query -coverage MCDC .coverage) && if [ $NUMBER -lt $MCDC_COV_GATE ]; then echo "MCDC coverage quality gate failed"; echo "Expected result $LINE_COV_GATE%, echieved $NUMBER%"; false; else echo "Line coverage quality gate passed with $NUMBER% (required $LINE_COV_GATE%)"; true; fi  
