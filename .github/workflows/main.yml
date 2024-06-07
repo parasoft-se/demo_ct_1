@@ -46,7 +46,9 @@ jobs:
           rm -rf cpptest-coverage/CovGoogleTest/CovGoogleTest.clog
 
       - name: Run Unit Tests
-        run: ctest
+        run: |
+          cd .build
+          ctest          
 
       # Builds your CMake project. (This step is optional, as it is not required for code analysis).
       - name: Compute Coverage
