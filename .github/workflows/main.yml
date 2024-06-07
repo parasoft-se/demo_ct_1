@@ -102,6 +102,10 @@ jobs:
         id: deployment
         uses: actions/deploy-pages@v2
 
+      - name: Show Coverage HTML Link
+        shell: bash
+        run: echo "Check html report https://parasoft-se.github.io/demo_ct_1/coverage.html"
+        
       - name: Line Coverage Quality Gate
         working-directory: ${{github.workspace}}/.build
         shell: bash
@@ -114,7 +118,5 @@ jobs:
         # Query for project's coverage and compare with the gate requirements
         run: NUMBER=$(cpptestcov query -coverage MCDC .coverage) && if [ $NUMBER -lt $MCDC_COV_GATE ]; then echo "MCDC coverage quality gate failed"; echo "Expected result $MCDC_COV_GATE%, echieved $NUMBER%"; false; else echo "MCDC coverage quality gate passed with $NUMBER% (required $MCDC_COV_GATE%)"; true; fi  
 
-      - name: Show Coverage HTML Link
-        shell: bash
-        run: echo "Check html report https://parasoft-se.github.io/demo_ct_1/coverage.html"
+      
         
