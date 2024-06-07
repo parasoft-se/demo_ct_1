@@ -14,7 +14,7 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel.
 jobs:
-  run-cpptest-bazel:
+  run-cpptest-cmake:
     name: Analyze project with C/C++test CT
 
     # Specifies required permissions for upload-sarif action
