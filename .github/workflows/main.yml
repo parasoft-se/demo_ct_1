@@ -75,6 +75,15 @@ jobs:
           cd .build
           cpptestcov index .coverage
 
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+    
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v2
+        with:
+          # Upload coverage reports
+          path: ${{github.workspace}}/.build/.coverage
+        
       - name: Archive reports
         if: always()
         uses: actions/upload-artifact@v4
@@ -82,6 +91,10 @@ jobs:
           name: CpptestCTReports
           path: |
             .build/.coverage/*.*
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
 
       - name: Line Coverage Quality Gate
         working-directory: ${{github.workspace}}/.build
