@@ -52,7 +52,11 @@ jobs:
 
       # Builds your CMake project. (This step is optional, as it is not required for code analysis).
       - name: Compute Coverage
-        run:  cpptestcov compute -map .cpptest -clog cpptest_results.clog -out .coverage
+        run: |
+          cd .build
+          cpptestcov compute -map .cpptest -clog cpptest_results.clog -out .coverage
 
       - name: Report Coverage to Console
-        run:  cpptestcov report text .coverage
+        run: |
+          cd .build
+          cpptestcov report text .coverage
