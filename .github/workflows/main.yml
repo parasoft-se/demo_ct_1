@@ -64,3 +64,11 @@ jobs:
         run: |
           cd .build
           cpptestcov report text .coverage
+
+      - name: Archive reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: CpptestCTReports
+          path: |
+            .coverage/*.*
