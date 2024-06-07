@@ -65,6 +65,11 @@ jobs:
           cd .build
           cpptestcov report text .coverage
 
+      - name: Compute Index for VS Code
+        run: |
+          cd .build
+          cpptestcov index .build/.coverage
+
       - name: Archive reports
         if: always()
         uses: actions/upload-artifact@v4
