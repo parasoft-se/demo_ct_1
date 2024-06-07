@@ -82,7 +82,7 @@ jobs:
         working-directory: ${{github.workspace}}/.build
         shell: bash
         # Execute the build.  You can specify a specific target with "--target <NAME>"
-        run: make cpptestcov-report
+        run:  cpptestcov report html .coverage
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
