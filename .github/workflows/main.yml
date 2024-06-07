@@ -68,7 +68,7 @@ jobs:
       - name: Compute Index for VS Code
         run: |
           cd .build
-          cpptestcov index .build/.coverage
+          cpptestcov index .coverage
 
       - name: Archive reports
         if: always()
