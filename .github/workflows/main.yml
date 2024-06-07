@@ -58,7 +58,7 @@ jobs:
       - name: Compute Coverage
         run: |
           cd .build
-          cpptestcov compute -map .cpptest -clog cpptest-coverage/CovGoogleTest/CovGoogleTest.clog -out .coverage
+          cpptestcov compute -map .coverage -clog cpptest-coverage/CovGoogleTest/CovGoogleTest.clog -out .coverage
 
       - name: Report Coverage to Console
         run: |
